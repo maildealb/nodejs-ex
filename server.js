@@ -11,8 +11,8 @@ var ip   = process.env.IP   || process.env.OPENSHIFT_NODEJS_IP || '0.0.0.0';
 var mongoURL = process.env.OPENSHIFT_MONGODB_DB_URL || process.env.MONGO_URL;
 var mongoURLLabel = "";
 
-//var WebSocketServer = require('ws').Server
-var WebSocketServer = require('websocket').Server
+var WebSocketServer = require('ws').Server
+//var WebSocketServer = require('websocket').Server
 
 if (mongoURL == null && process.env.DATABASE_SERVICE_NAME) {
   var mongoServiceName = process.env.DATABASE_SERVICE_NAME.toUpperCase();

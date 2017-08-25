@@ -1,3 +1,4 @@
+/*
 //  OpenShift sample Node application
 var express = require('express');
 var fs      = require('fs');
@@ -102,10 +103,11 @@ initDb(function(err){
 app.listen(port, ip);
 console.log('Server running on ' + ip + ':' + port);
 
+*/
 
 //  Websocket example
 //--------------------
-/*
+
 var port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 8080;
 var ip   = process.env.IP   || process.env.OPENSHIFT_NODEJS_IP || '0.0.0.0';
 var mongoURL = process.env.OPENSHIFT_MONGODB_DB_URL || process.env.MONGO_URL;
@@ -119,6 +121,16 @@ var server = http.createServer(function(request, response) {
 	response.writeHead(200, {'Content-Type': 'text/plain'});
 	  response.write("Welcome to Node.js on OpenShift!\n\n");
 	  response.end("Thanks for visiting us! \n");
+});
+
+server.get('/pagecount', function (req, res) {
+  if (db) {
+    db.collection('counts').count(function(err, count ){
+      res.send('{ pageCount: ' + count +'}');
+    });
+  } else { 
+    res.send('{ pageCount: -1 }');
+  }
 });
 
 server.listen( port, ipaddress, function() {
@@ -138,4 +150,3 @@ wss.on('connection', function(ws) {
 });
 
 console.log("Listening to " + ipaddress + ":" + port + "...");
-*/

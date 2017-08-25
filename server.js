@@ -123,16 +123,6 @@ var server = http.createServer(function(request, response) {
 	  response.end("Thanks for visiting us! \n");
 });
 
-server.get('/pagecount', function (req, res) {
-  if (db) {
-    db.collection('counts').count(function(err, count ){
-      res.send('{ pageCount: ' + count +'}');
-    });
-  } else { 
-    res.send('{ pageCount: -1 }');
-  }
-});
-
 server.listen( port, ipaddress, function() {
     console.log((new Date()) + ' Server is listening on port 8080');
 });

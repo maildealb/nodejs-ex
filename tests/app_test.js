@@ -5,7 +5,7 @@ var server   = require('../server'),
 
 chai.use(chaiHTTP);
 
-reqServer = process.env.HTTP_TEST_SERVER || server
+reqServer = process.env.HTTP_TEST_SERVER || server || 'http://nodejs-mongo-persistent-wifi-id-test.a3c1.starter-us-west-1.openshiftapps.com'
 
 describe('Basic routes tests', function() {
 

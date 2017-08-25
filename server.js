@@ -123,7 +123,7 @@ var server = http.createServer(function(request, response) {
 	  response.end("Thanks for visiting us! \n");
 });
 
-server.listen( port, ipaddress, function() {
+server.listen( port, ip, function() {
     console.log((new Date()) + ' Server is listening on port 8080');
 });
 
@@ -139,4 +139,4 @@ wss.on('connection', function(ws) {
   ws.send('Welcome!');
 });
 
-console.log("Listening to " + ipaddress + ":" + port + "...");
+console.log("Listening to " + ip + ":" + port + "...");
